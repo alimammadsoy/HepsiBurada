@@ -1,3 +1,5 @@
+using HepsiBurada.Application;
+using HepsiBurada.Mapper;
 using HepsiBurada.Persistence;
 
 
@@ -23,6 +25,8 @@ namespace HepsiBurada
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
             builder.Services.AddPersistence(builder.Configuration);
+            builder.Services.AddApplication();
+            builder.Services.AddCustomMapper();
 
             var app = builder.Build();
 
